@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Navigation.css'
 
@@ -9,7 +10,7 @@ const Navigation = () => {
             <Link to='/destination'>Destination</Link>
             <Link to='/blog'>Blog</Link>
             <Link to='/contact'>Contact</Link>
-            <Link to='/login'><button>LogIn</button></Link>
+            <Link to='/login'><Button variant='warning'> LogIn</Button></Link>
         </div>
     );
 };

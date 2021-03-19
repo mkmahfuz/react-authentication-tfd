@@ -1,0 +1,20 @@
+.trSingle1{
+border: 1px solid gray;
+margin: 1rem;
+background-color: rgb(241, 238, 238);
+border-radius: 1rem;
+padding: 1rem;
+text-align: center;
+}
+.trSingle{
+    width:20rem;
+    background-color: rgb(241, 238, 238);
+    padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+    border-radius: 1rem !important;
+}
+
+.trSingle img{
+    max-width: 9rem;
+}
