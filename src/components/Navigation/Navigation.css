@@ -1,0 +1,15 @@
+.navLink{
+    float: right;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    /* display: inline; */
+}
+
+.navLink a {
+    color: black;
+    padding-right: 1rem;
+}
+
+.navLink a:link{
+    text-decoration: none;
+}
