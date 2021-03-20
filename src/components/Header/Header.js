@@ -4,7 +4,7 @@ import Navigation from '../Navigation/Navigation';
 import './Header.css'
 const Header = () => {
     return (
-        <header>
+        <header className='header'>
             <img  src={logo} alt='logo'/>
             <Navigation></Navigation>
         </header>

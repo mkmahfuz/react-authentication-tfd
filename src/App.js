@@ -19,7 +19,10 @@ function App() {
         <Route path='/home'>
           <Home></Home>
         </Route>
-        <Route path='/destination'>
+        <Route path='/destination3'>
+          <Destination></Destination>
+        </Route>
+        <Route path='/destination/:type'>
           <Destination></Destination>
         </Route>
         <Route path='/blog'>

@@ -1,0 +1,88 @@
+[
+    {
+        "id": 1,
+        "type": "bike",
+        "capacity": 1,
+        "imgUrl": "https://i.ibb.co/kSbn2DZ/Frame.png",
+        "price": 30
+    },
+
+    {
+        "id": 2,
+        "type": "bike",
+        "capacity": 1,
+        "imgUrl": "https://i.ibb.co/kSbn2DZ/Frame.png",
+        "price": 30
+    },
+    {
+        "id": 3,
+        "type": "bike",
+        "capacity": 1,
+        "imgUrl": "https://i.ibb.co/kSbn2DZ/Frame.png",
+        "price": 30
+    },
+    {
+        "id": 4,
+        "type": "car",
+        "capacity": 3,
+        "imgUrl": "https://i.ibb.co/bLZfR0z/Frame-2.png",
+        "price": 50
+    },
+    {
+        "id": 5,
+        "type": "car",
+        "capacity": 3,
+        "imgUrl": "https://i.ibb.co/bLZfR0z/Frame-2.png",
+        "price": 50
+    },
+    {
+        "id": 6,
+        "type": "car",
+        "capacity": 3,
+        "imgUrl": "https://i.ibb.co/bLZfR0z/Frame-2.png",
+        "price": 50
+    },
+    {
+        "id": 7,
+        "type": "bus",
+        "capacity": 20,
+        "imgUrl": "https://i.ibb.co/0cVz5Qj/Frame-1.png",
+        "price": 15
+    },
+    {
+        "id": 8,
+        "type": "bus",
+        "capacity": 20,
+        "imgUrl": "https://i.ibb.co/0cVz5Qj/Frame-1.png",
+        "price": 15
+    },
+    {
+        "id": 9,
+        "type": "bus",
+        "capacity": 20,
+        "imgUrl": "https://i.ibb.co/0cVz5Qj/Frame-1.png",
+        "price": 15
+    },
+    {
+        "id": 10,
+        "type": "train",
+        "capacity": 300,
+        "imgUrl": "https://i.ibb.co/ckf5NjY/Group.png",
+        "price": 10
+    },
+    {
+        "id": 11,
+        "type": "train",
+        "capacity": 300,
+        "imgUrl": "https://i.ibb.co/ckf5NjY/Group.png",
+        "price": 10
+    },
+    {
+        "id": 12,
+        "type": "train",
+        "capacity": 300,
+        "imgUrl": "https://i.ibb.co/ckf5NjY/Group.png",
+        "price": 10
+    }
+    
+]

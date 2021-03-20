@@ -1,0 +1,22 @@
+.ride{
+border: 1px solid lightgrey;
+/* display: flex;
+justify-content: space-evenly; */
+padding: 1rem;
+margin-bottom: 1rem;
+border-radius: 1rem;
+}
+.ride p{
+    margin-bottom: 0rem;
+}
+.ride img{
+    max-width: 3rem;
+}
+#price{
+/* flex-grow: 8; */
+float: right;
+}
+.ride-left{
+    display: flex;
+    justify-content: space-between;
+}
