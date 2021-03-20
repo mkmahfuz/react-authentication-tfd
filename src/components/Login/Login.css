@@ -1,0 +1,34 @@
+.login-container{    
+    width: 30rem;
+    margin:5rem auto;
+}
+.login-form{
+    border:1px solid lightgrey;
+
+}
+.login-form input{
+    display:block;
+    width: 24rem;
+    /* margin-top: 2rem; */
+    margin: 2rem auto;
+   
+}
+
+.google-signIn{
+    text-align: center;
+    /* width:20rem; */
+    /* margin: 3rem auto; */
+    margin-top: 2rem;
+    
+}
+.google-signIn button{
+    border: 1px solid lightgrey;
+    border-radius: 1rem;
+    width: 30rem;
+    padding: .5rem;
+    
+}
+.form-inside{
+    width: 24rem;
+    margin: 2rem auto;
+}
