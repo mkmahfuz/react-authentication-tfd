@@ -10,12 +10,12 @@ const Googlemap = () => {
 
             <GoogleMapReact
                 bootstrapURLKeys={{ key: 'AIzaSyAsRRIM_Jw-tU0-i83WrCI5VtEVVhCqZfo'}}
-                defaultCenter={{ lat: 47.444, lng: -122.176}}
+                defaultCenter={{ lat: 23.8103, lng: 90.4125}}
                 defaultZoom={8}
             >
                 <AnyReactComponent
-                    lat={59.955413}
-                    lng={30.337844}
+                    lat={23.8103}
+                    lng={90.4125}
                     text="My Marker"
                 />
             </GoogleMapReact>

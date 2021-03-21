@@ -50,7 +50,7 @@ const Login3 = () => {
                     email: email
                 }
                 setUser(signedInUser);
-                
+
                 setLoggedInUser(signedInUser); //sent user data to context
                 history.replace(from); // reactrouter redirect loginpage function
 
@@ -270,26 +270,16 @@ const Login3 = () => {
 
             }
 
+
+
             <div>
-                <h1>Our own authentication system</h1>
-
-                <div>
-                    <p>Name:{user.name}</p>
-                    <p>Email:{user.email}</p>
-                    <p>Password:{user.password}</p>
-                    <p>ConPassword:{user.confirmpassword}</p>
-                </div>
-
-
-
-                <div>
-                    <p style={{ color: 'red' }}>{user.error}</p>
-                    {
-                        user.success && <p style={{ color: 'green' }}> User {newUser ? 'created' : 'Logged In'} successfully</p>
-                    }
-                </div>
-
+                <p style={{ color: 'red' }}>{user.error}</p>
+                {
+                    user.success && <p style={{ color: 'green' }}> User {newUser ? 'created' : 'Logged In'} successfully</p>
+                }
             </div>
+
+
 
         </div>
     );
