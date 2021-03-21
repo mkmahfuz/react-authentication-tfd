@@ -31,3 +31,30 @@
     /* margin: 2rem; */
     /* width: 100rem; */
 }
+.search-result{
+background-color: lightgrey;
+border: 1px solid lightgrey;
+border-radius: 1rem;
+padding: 1rem;
+}
+.search-location{
+background-color: lightsalmon;
+border: 1px solid lightsalmon;
+border-radius: 1rem;
+}
+#search-again{
+      text-align: center;
+      color: rgb(247, 39, 11);
+      border-bottom: 1px solid lightslategrey;
+      border-radius: 1rem;
+}
+#search-from-to{
+    border-left: 2px solid red;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    color: white;
+    font-weight: 800;
+}
+.search-ride{
+    margin-top: 1rem;
+}
