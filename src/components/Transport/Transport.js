@@ -1,7 +1,7 @@
 
 import React, { useContext } from 'react';
 import { Card, Button } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { RideContext } from '../../App';
 import './Transport.css'
 const Transport = (props) => {

@@ -5,7 +5,7 @@ import bike from '../../images/Transport/bike.png';
 import car from '../../images/Transport/car.png';
 import bus from '../../images/Transport/bus.png';
 import train from '../../images/Transport/train.png';
-import { CardColumns, CardDeck, Col, Container, Row } from 'react-bootstrap';
+import { CardDeck, Col, Container, Row } from 'react-bootstrap';
 
 const TransportAll = () => {
     const transports = [
