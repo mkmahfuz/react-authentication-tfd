@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import firebase from "firebase/app";
@@ -8,11 +8,20 @@ import firebaseConfig from './firebase.config';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { UserContext } from '../../App';
+import { useHistory, useLocation } from 'react-router-dom';
 const Login3 = () => {
 
     if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig);
     }
+    //usecontext to set logged in user info
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    //redirect after loggedin
+    let history = useHistory();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" }};
+
     const [pswd, setPswd] = useState('');
 
     const [newUser, setNewUser] = useState(false);
@@ -99,8 +108,8 @@ const Login3 = () => {
                     const newUser = { ...user };
                     newUser.error = '';
                     newUser.success = true;
-                    setUser(newUser)
-                    updateUserName(newUser.name)
+                    setUser(newUser);
+                    updateUserName(newUser.name);
                     console.log(user)
                     // ...
                 })
@@ -119,19 +128,22 @@ const Login3 = () => {
         //signIn with existing user
         if (!newUser && user.email && user.password) {
             firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+                .then((result) => {
+                    // Signed in 
+                    // const user = userCredential.user;
+                    const newUser = { ...user };
+                    newUser.error = '';
+                    newUser.success = true;
+                    setUser(newUser);
 
-            .then(result => {
-                const { displayName, photoURL, email } = result.user;
-                const signedInUser = {
-                    isSignedIn: true,
-                    name: displayName,
-                    photo: photoURL,
-                    email: email
-                }
-                setUser(signedInUser);
-                console.log(displayName, photoURL, email)
-            })
-                
+                    setLoggedInUser(newUser); //sent user data to context
+                    history.replace(from); // reactrouter redirect loginpage function
+
+                    updateUserName(newUser.name)
+                    console.log('sign in user info:', result.user)
+                    // ...
+                })
+
                 .catch((error) => {
                     // var errorCode = error.code;
                     // var errorMessage = error.message;
@@ -199,10 +211,7 @@ const Login3 = () => {
 
     return (
         <div>
-            <Header></Header>
-
-            
-
+          
 
             <div className='login-container'>
                 {!newUser &&
@@ -222,7 +231,7 @@ const Login3 = () => {
                         <div className='form-inside'>
                             <h2>Create an account</h2>
                             <input name="name" placeholder='Name' onBlur={handleBlur} />
-                            <input name="email" placeholder='Email' required onBlur={handleBlur} />                            
+                            <input name="email" placeholder='Email' required onBlur={handleBlur} />
                             <input type='password' name="password" placeholder='Password' required onBlur={handleBlur} />
                             <input type='password' name="confirmpassword" placeholder='Confirm Password' required onBlur={handleBlur} />
                             <input type="submit" value='Create an account' />
@@ -240,7 +249,7 @@ const Login3 = () => {
 
                 <div className='google-signIn'>
                     <p>----------------Or---------------</p>
-                    
+
                     <button onClick={handleGoogleSignIn}><FontAwesomeIcon icon={faGoogle} style={{ marginRight: '2rem' }} /><span >Continue with Google</span></button>
 
 
@@ -277,7 +286,7 @@ const Login3 = () => {
                 </div>
 
             </div>
-            <Footer></Footer>
+         
         </div>
     );
 };

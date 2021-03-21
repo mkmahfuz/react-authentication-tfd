@@ -1,17 +1,29 @@
+import { createContext, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Blog from "./components/Blog/Blog";
 import Contact from "./components/Contact/Contact";
 import Destination from "./components/Destination/Destination";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Login1 from "./components/Login/Login1";
 import Login2 from "./components/Login/Login2";
 import Login3 from "./components/Login/Login3";
 import NotFound from "./components/NotFound/NotFound";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser,setLoggedInUser] = useState({});
+
   return (
+    <>
+ <h1>test {loggedInUser.email}</h1>
+    <UserContext.Provider value = {[loggedInUser,setLoggedInUser]}>
     <Router>
+      <Header></Header>
       <Switch>
         <Route exact path='/'>
           <Home></Home>
@@ -22,12 +34,12 @@ function App() {
         <Route path='/destination3'>
           <Destination></Destination>
         </Route>
-        <Route path='/destination/:type'>
+        <PrivateRoute path='/destination/:type'>
           <Destination></Destination>
-        </Route>
-        <Route path='/blog'>
+        </PrivateRoute>
+        <PrivateRoute path='/blog'>
          <Blog></Blog>
-        </Route>
+        </PrivateRoute>
         <Route path='/contact'>
           <Contact></Contact>
         </Route>
@@ -47,7 +59,11 @@ function App() {
           <NotFound></NotFound>
         </Route>
       </Switch>
+      <Footer></Footer>
     </Router>
+    </UserContext.Provider>
+  
+    </>
 
   );
 }

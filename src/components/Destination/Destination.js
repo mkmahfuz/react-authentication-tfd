@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
+
 import './Destination.css';
 import map from '../../images/Transport/map.png';
 import Ride from '../Ride/Ride';
@@ -26,9 +25,7 @@ const Destination = () => {
         console.log('search clicked');
     }
     return (
-        <div>
-
-            <Header></Header>
+        <div>           
             <div className='destination-container'>
 
                 <Container>
@@ -73,7 +70,7 @@ const Destination = () => {
             </div>
 
 
-            <Footer></Footer>
+         
         </div>
     );
 };

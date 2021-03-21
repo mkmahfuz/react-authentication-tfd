@@ -2,3 +2,6 @@
     max-width: 15rem;
     margin: 1rem;
 }
+.header{
+    border-bottom: 2px solid lightgrey;
+}

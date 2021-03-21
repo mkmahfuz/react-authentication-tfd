@@ -4,25 +4,25 @@ import Header from '../Header/Header';
 import bgImage from '../../images/Background/bg-city-2.jpg';
 import TransportAll from '../TransportAll/TransportAll';
 
-
+import './Home.css';
 
 
 const Home = () => {
-    const homeStyle = {
-        backgroundImage: 'url(' + bgImage + ')',
-        backgroundRepeat: 'no-repeat',
-        // backgroundSize: 'contain',
-        backgroundSize: 'cover',
-        // backgroundSize: '100% 100%'
-    }
+    // const homeStyle = {
+    //     backgroundImage: 'url(' + bgImage + ')',
+    //     backgroundRepeat: 'no-repeat',
+    //     // backgroundSize: 'contain',
+    //     backgroundSize: 'cover',
+        
+    // }
 
     return (
-        <div style={homeStyle}>
-            <Header></Header>
+        <div >
+         
 
             <TransportAll></TransportAll>
 
-            <Footer></Footer>
+           
         </div>
     );
 };

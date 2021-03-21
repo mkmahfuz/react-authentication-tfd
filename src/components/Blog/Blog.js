@@ -5,9 +5,9 @@ import Header from '../Header/Header';
 const Blog = () => {
     return (
         <div>
-            <Header></Header>
+        
             <h1>This is blog page......</h1>
-            <Footer></Footer>
+            
         </div>
     );
 };

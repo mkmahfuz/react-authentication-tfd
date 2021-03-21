@@ -3,7 +3,9 @@
     margin:5rem auto;
 }
 .login-form{
-    border:1px solid lightgrey;
+    border:2px solid lightgrey;
+    background-color: rgb(247, 243, 243);
+    border-radius: 1rem;
 }
 .login-form input{
     display:block;

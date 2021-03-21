@@ -10,7 +10,7 @@ const Navigation = () => {
             <Link to='/destination'>Destination</Link>
             <Link to='/blog'>Blog</Link>
             <Link to='/contact'>Contact</Link>
-            <Link to='/login'><Button variant='warning'> LogIn</Button></Link>
+            <Link to='/login3'><Button variant='warning'> LogIn</Button></Link>
         </div>
     );
 };
