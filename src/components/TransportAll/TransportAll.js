@@ -1,6 +1,6 @@
 import React from 'react';
 import Transport from '../Transport/Transport';
-
+import './TransportAll.css';
 import bike from '../../images/Transport/bike.png';
 import car from '../../images/Transport/car.png';
 import bus from '../../images/Transport/bus.png';
@@ -22,7 +22,7 @@ const TransportAll = () => {
         //style={{columnCount:'4'}}
     ]
     return (
-        <Container>
+        <Container className='all-transport'>
             <Row>
                 <Col>
                     <CardDeck>
