@@ -6,6 +6,7 @@ import map from '../../images/Transport/map.png';
 import Ride from '../Ride/Ride';
 import rideData from '../fakeData/transport.json';
 import { RideContext } from '../../App';
+import Googlemap from '../Googlemap/Googlemap';
 
 const Destination = (props) => {
 
@@ -45,11 +46,11 @@ const Destination = (props) => {
             <div className='destination-container'>
 
                 <Container>
-                    <Row>
+                    <Row style={{marginTop:'1rem'}}>
                         <Col sm={4}>
 
                             <div className='desti-form-container'>
-                                <p> from-to</p>
+                                
                                 {!location.to &&
                                     <form onSubmit={handleSearch} className='desti-form'>
                                         <div className='desti-form-inside'>
@@ -87,8 +88,8 @@ const Destination = (props) => {
                         </Col>
                         <Col sm={8}>
                             <div className='gmap'>
-                                <p>map</p>
-                                <img src={map} alt='googlemap'></img>
+                               <Googlemap></Googlemap>
+                                {/* <img src={map} alt='googlemap'></img> */}
                             </div>
 
                         </Col>
