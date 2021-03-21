@@ -1,14 +1,13 @@
 import React, { useContext, useState } from 'react';
-
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
-
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
+
 const Login3 = () => {
 
     if (firebase.apps.length === 0) {
@@ -16,6 +15,11 @@ const Login3 = () => {
     }
     //usecontext to set logged in user info
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+    //error and other info state
+    const [customErrors, setCustomErrors] = useState({ error: '' }, { info: '' });
+
+    // const showInfo = (e)=>`<span>${e}</span>`;
 
     //redirect after loggedin
     let history = useHistory();
@@ -35,6 +39,7 @@ const Login3 = () => {
         error: '',
         success: false
     });
+
 
     //sign in with google
     const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -115,12 +120,10 @@ const Login3 = () => {
                     setUser(newUser);
                     updateUserName(newUser.name);
                     console.log(user)
-                    // ...
+
                 })
                 .catch((error) => {
-                    // var errorCode = error.code;
-                    // var errorMessage = error.message;
-                    // ..
+
                     const newUser = { ...user };
                     newUser.error = error.message;
                     newUser.success = false;
@@ -167,34 +170,35 @@ const Login3 = () => {
     //
     const handleBlur = (evnt) => {
         let isFieldValid = false;
-        // let pswd = 'd';
+
         if (evnt.target.name === 'email') {
             const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; //regex valid email pattern
-            // re.test(evnt.target.value) ? console.log('valid email') : console.log('invalid email') //regex.test(whattoteststring) return true/false
-            // console.log(evnt.target.value)
-            // const isEmailValid = re.test(evnt.target.value);
+
             isFieldValid = re.test(evnt.target.value);
-            // console.log(isEmailValid)
-            isFieldValid ? console.log('email valid') : console.log('email is invalid');
+
+            // isFieldValid ? console.log('email valid') : console.log('email is invalid');
+            isFieldValid ? setCustomErrors({ info: 'email valid' }) : setCustomErrors({ error: 'email is invalid' });
         }
         if (evnt.target.name === 'password') {
             setPswd(evnt.target.value);
             // console.log(pswd,evnt.target.value);
             console.log('psw', evnt.target.value);
-            const isPasswordValid = evnt.target.value.length > 6;
+            const isPasswordValid = evnt.target.value.length > 5;
             console.log(isPasswordValid)
             const re = /\d{1}/;
             const passwordHasNumber = re.test(evnt.target.value);
             // console.log(isPasswordValid && passwordHasNumber);
             isFieldValid = isPasswordValid && passwordHasNumber;
 
-            isFieldValid ? console.log('password valid') : console.log('password is invalid');
+            // isFieldValid ? console.log('password valid') : console.log('password is invalid');
+            isFieldValid ? setCustomErrors({ info: 'password valid' }) : setCustomErrors({ error: 'password is invalid,need greater than 5 with atleast 1 number' });
         }
         if (evnt.target.name === 'confirmpassword') {
             console.log('plpl', pswd)
             const passmatched = pswd === evnt.target.value;
             isFieldValid = passmatched;
-            isFieldValid ? console.log('pswrd matched') : console.log('paswd not matched');
+            // isFieldValid ? console.log('pswrd matched') : console.log('paswd not matched');
+            isFieldValid ? setCustomErrors({ info: 'password matched' }) : setCustomErrors({ error: 'password not matched' });
         }
         if (isFieldValid) {
             console.log('test conpasvalid', isFieldValid)
@@ -207,11 +211,7 @@ const Login3 = () => {
         // console.log(event.target.value)
 
     }
-    // const testSubmit = (e) => {
-    //     console.log('test form sumbitted ');
-    //     console.log(user.email, user.password);
-    //     e.preventDefault();
-    // }
+
 
     return (
         <div>
@@ -245,12 +245,6 @@ const Login3 = () => {
                 }
 
 
-
-
-
-
-
-
                 <div className='google-signIn'>
                     <p>----------------Or---------------</p>
 
@@ -258,26 +252,20 @@ const Login3 = () => {
 
 
                 </div>
-            </div>
-
-
-            {
-                user.isSignedIn && <div>
-                    <p>User Name: {user.name}</p>
-                    <p>Photo: <img src={user.photo} alt="" /></p>
-                    <p>Email: {user.email}</p>
+                {/* errors and other infor*/}
+                <div className='error-info'>
+                    <p style={{borderBottom:'1px solid grey'}}>Other Information</p>
+                    
+                    <p style={{ color: 'red' }}>{customErrors.error}</p>
+                    <p style={{ color: 'blue' }}>{customErrors.info}</p>
+                    <p style={{ color: 'red' }}>{user.error}</p>
+                    {
+                        user.success && <p style={{ color: 'green' }}> User {newUser ? 'created' : 'Logged In'} successfully</p>
+                    }
                 </div>
-
-            }
-
-
-
-            <div>
-                <p style={{ color: 'red' }}>{user.error}</p>
-                {
-                    user.success && <p style={{ color: 'green' }}> User {newUser ? 'created' : 'Logged In'} successfully</p>
-                }
             </div>
+
+
 
 
 

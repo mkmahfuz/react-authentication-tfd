@@ -1,6 +1,6 @@
 .login-container{    
     width: 30rem;
-    margin:5rem auto;
+    margin:3rem auto;
 }
 .login-form{
     border:2px solid lightgrey;
@@ -32,4 +32,12 @@
 .form-inside{
     width: 24rem;
     margin: 2rem auto;
+}
+.error-info{
+    border:1px solid red;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: rgb(253, 252, 251);
+    text-align: center;
 }

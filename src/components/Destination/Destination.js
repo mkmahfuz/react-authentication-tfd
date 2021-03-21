@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
 import './Destination.css';
-import map from '../../images/Transport/map.png';
+// import map from '../../images/Transport/map.png';
 import Ride from '../Ride/Ride';
 import rideData from '../fakeData/transport.json';
 import { RideContext } from '../../App';
