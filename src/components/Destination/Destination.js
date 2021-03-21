@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
 import './Destination.css';
@@ -6,12 +6,18 @@ import map from '../../images/Transport/map.png';
 import Ride from '../Ride/Ride';
 import rideData from '../fakeData/transport.json';
 import { useParams } from 'react-router-dom';
+import { RideContext } from '../../App';
 
-const Destination = () => {
-    const {type} = useParams();
-    console.log('hhh',type)
+const Destination = (props) => {
+    const [rideType,setRideType] = useContext(RideContext);
+    // const rideType = props.type;
+    // console.log('Ride-type:',rideType);
+    // const {type} = useParams();
+    // console.log('hhh',type)
+    let type = rideType || 'car';
+    console.log('ride=type:',rideType)
+
     const [rides, setRides] = useState([]);
-
     useEffect(() => { setRides(rideData) }, []);
 
 

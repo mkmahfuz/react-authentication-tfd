@@ -1,7 +1,8 @@
 
-import React from 'react';
-import { Card ,Button} from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Card, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
+import { RideContext } from '../../App';
 import './Transport.css'
 const Transport = (props) => {
     // console.log(props)
@@ -9,16 +10,23 @@ const Transport = (props) => {
     // console.log(image)
 
     const history = useHistory();
-    const handleClick = (name)=>{
+    const handleClick1 = (name) => {
         const url = `/destination/${name}`;
         history.push(url);
     }
+
+    const [rideType, setRideType ] = useContext(RideContext);
+    const handleClick = (name) => {
+        setRideType(name);
+        const url = `/destination/`;
+        history.push(url);
+    }
+
     return (
         <Card className='trSingle'>
-            <Card.Img variant='top' src={image[name]}/>
+            <Card.Img variant='top' src={image[name]} />
             <Card.Body>
-                <Card.Text>{name.toUpperCase()}</Card.Text>
-                <Button variant='primary' onClick={()=>handleClick(name)}>{name}</Button>
+                <Button variant='primary' onClick={() => handleClick(name)}>{name.toUpperCase()}</Button>
             </Card.Body>
         </Card>
 

@@ -5,12 +5,13 @@
 
 .desti-form-container{    
     width: 20rem;
-    margin:2rem auto;
+    margin-top: 0px;
+    margin: auto;
 }
 .desti-form{
     border:1px solid lightgrey;
     border-radius: 1rem;
-    background-color: lightgrey;
+    background-color: rgb(245, 241, 241);
 }
 .desti-form input{
     display:block;

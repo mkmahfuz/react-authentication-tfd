@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
+
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
@@ -17,10 +16,11 @@ const Login3 = () => {
     }
     //usecontext to set logged in user info
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
     //redirect after loggedin
     let history = useHistory();
     let location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" }};
+    let { from } = location.state || { from: { pathname: "/" } };
 
     const [pswd, setPswd] = useState('');
 
@@ -50,6 +50,10 @@ const Login3 = () => {
                     email: email
                 }
                 setUser(signedInUser);
+                
+                setLoggedInUser(signedInUser); //sent user data to context
+                history.replace(from); // reactrouter redirect loginpage function
+
                 console.log(displayName, photoURL, email)
             })
             .catch(err => {
@@ -211,7 +215,7 @@ const Login3 = () => {
 
     return (
         <div>
-          
+
 
             <div className='login-container'>
                 {!newUser &&
@@ -286,7 +290,7 @@ const Login3 = () => {
                 </div>
 
             </div>
-         
+
         </div>
     );
 };
